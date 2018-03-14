@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,9 @@ import {
   TouchableHighlight,
   ActivityIndicator,
 } from 'react-native';
+
+import api from '../utils/api';
+import {STATUSES} from '../utils/statuses';
 
 export default class Main extends Component {
 
@@ -29,7 +32,27 @@ export default class Main extends Component {
     this.setState({
       isLoading: true,
     });
-    console.log('Test: ', this.state.username);
+    api.getBio(this.state.username)
+      .then(res => {
+        if (res.message === STATUSES.NOT_FOUND) {
+          this.setState({
+            error: 'User not found',
+            isLoading: false,
+          });
+        } else {
+          this.props.navigation.navigate('Dashboard',
+            {
+              userInfo: res,
+              title: res.name || 'Select an Option'
+            }
+          );
+          this.setState({
+            error: false,
+            isLoading: false,
+            username: '',
+          });
+        }
+      });
   }
 
   render() {
