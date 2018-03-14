@@ -8,8 +8,8 @@ import {
   ActivityIndicator,
 } from 'react-native';
 
-import api from '../utils/api';
-import {STATUSES} from '../utils/statuses';
+import { api } from '../utils/api';
+import { STATUSES } from '../utils/statuses';
 
 export default class Main extends Component {
 
