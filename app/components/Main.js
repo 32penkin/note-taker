@@ -55,6 +55,10 @@ export default class Main extends Component {
       });
   }
 
+  renderError() {
+    return (this.state.error ? <Text>{this.state.error}</Text> : <View/>);
+  }
+
   render() {
     return (
       <View style={styles.mainContainer}>
@@ -70,6 +74,12 @@ export default class Main extends Component {
           underlayColor="white">
           <Text style={styles.buttonText}>Search</Text>
         </TouchableHighlight>
+        <ActivityIndicator
+          animating={this.state.isLoading}
+          color="#111"
+          size="large"
+        />
+        {this.renderError()}
       </View>
     )
   }
@@ -79,8 +89,6 @@ export default class Main extends Component {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    // padding: 30,
-    // marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#48BBEC'
