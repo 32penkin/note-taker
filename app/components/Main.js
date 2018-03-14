@@ -64,7 +64,7 @@ export default class Main extends Component {
       <View style={styles.mainContainer}>
         <Text style={styles.title}> Search for a GitHub User </Text>
         <TextInput
-          style={styles.textInput}
+          style={styles.searchInput}
           value={this.state.username}
           onChange={this.handleChange.bind(this)}
         />

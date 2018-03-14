@@ -16,12 +16,6 @@ const Navigation = StackNavigator(
     Dashboard: {
       screen: Dashboard,
     },
-  },
-  {
-    headerMode: 'none',
-    navigationOptions: {
-      headerVisible: false,
-    }
   }
 );
 
