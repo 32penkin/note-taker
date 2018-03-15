@@ -4,17 +4,19 @@ import {
   Text,
   StyleSheet,
   Image,
-  TouchableHighlight,
 } from 'react-native';
+
+import PropTypes from 'prop-types';
 
 export default class Badge extends Component {
 
   render() {
+    const userAvatarUri = this.props.userInfo.avatar_url;
 
     return (
       <View style={styles.container}>
         <Image
-          sourse={{uri: this.props.userInfo.avatar_url}}
+          source={{uri: userAvatarUri}}
           style={styles.image}
         />
         <Text style={styles.name}>{this.props.userInfo.name}</Text>

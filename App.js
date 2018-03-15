@@ -4,6 +4,7 @@ import { StackNavigator } from 'react-navigation';
 
 import Main from './app/components/Main';
 import Dashboard from './app/components/Dashboard';
+import Profile from './app/components/Profile'
 
 const Navigation = StackNavigator(
   {
@@ -15,6 +16,9 @@ const Navigation = StackNavigator(
     },
     Dashboard: {
       screen: Dashboard,
+    },
+    Profile: {
+      screen: Profile,
     },
   }
 );

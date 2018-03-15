@@ -29,7 +29,7 @@ export default class Dashboard extends Component {
   }
 
   goToProfile() {
-    console.log('Go to profile');
+    this.props.navigation.navigate('Profile', { userInfo: this.props.navigation.state.params.userInfo });
   }
 
   goToRepos() {
